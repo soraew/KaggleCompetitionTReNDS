@@ -49,3 +49,11 @@ svm_loss_dict={'age': '0.1445',
  'domain1_var2': '0.1512',
  'domain2_var1': '0.1818',
  'domain2_var2': '0.1761'}
+
+#finally selected ICs for submission (removed some after calculating feature importance using lofo-importance)
+selected2 =  ['IC_01', 'IC_02', 'IC_03', 'IC_04', 'IC_06', 'IC_07', 'IC_08',
+       'IC_09', 'IC_10', 'IC_11', 'IC_12', 'IC_13', 'IC_14', 'IC_15',
+       'IC_16', 'IC_17', 'IC_18', 'IC_21', 'IC_22', 'IC_24', 'IC_26',
+       'IC_28', 'IC_29']
+
+domains = ["age","domain1_var1","domain1_var2", "domain2_var1", "domain2_var2"]

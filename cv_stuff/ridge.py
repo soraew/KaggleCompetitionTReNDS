@@ -1,24 +1,25 @@
 from loading import *
 
-from sklearn.linear_model import Lasso
+from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
 import numpy as np
-
 
 n_splits = 5
 
 features = fnc_features + selected2
 
+from sklearn.model_selection import train_test_split
 
-targets= ["age","domain1_var1","domain1_var2", "domain2_var1", "domain2_var2"]
+targets= domains
 
 ridge_df = pd.DataFrame(df.copy())
+
 
 kf = KFold(n_splits = n_splits)
 
 sub_targets_container=[]
 
-for alpha in [0.001, 0.003, 0.005, 0.01, 0.5, 1.0]:
+for alpha in [0.001, 0.003, 0.005]:
     
     #this is for the test predictions
     sub_targets = pd.DataFrame()
