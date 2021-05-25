@@ -5,8 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-import json 
-import pickle
 
 
 
@@ -36,10 +34,8 @@ def cv_test(model, train_df=train_df, test_df=test_df, features=features, target
             y_train, y_val = train.iloc[train_ind][target], train.iloc[val_ind][target]
 
             
-
-            
             try:
-                model.fit(X_train, y_train)
+                model.fit(X_train, y_train)#model がsklearn のものだった場合
                 pred = model.predict(X_val)
                 test_pred = model.predict(test_df[features])
             except:
