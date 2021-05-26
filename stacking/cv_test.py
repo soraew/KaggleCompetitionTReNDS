@@ -2,8 +2,7 @@ from loading import *
 from sklearn.model_selection import cross_val_score, KFold
 from sklearn.linear_model import ElasticNet, Ridge
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 import pandas as pd
 
 
