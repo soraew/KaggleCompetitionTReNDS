@@ -1,17 +1,7 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 from sklearn.model_selection import KFold
 import os
 import sys
-
-os.system("cp ../input/rapids/rapids.0.13.0 /opt/conda/envs/rapids.tar.gz")
-os.system("cd /opt/conda/envs/ && tar -xzvf rapids.tar.gz > /dev/null")
-sys.path = ["/opt/conda/envs/rapids/lib/python3.6/site-packages"] + sys.path
-sys.path = ["/opt/conda/envs/rapids/lib/python3.6"] + sys.path
-sys.path = ["/opt/conda/envs/rapids/lib"] + sys.path
-os.system("cp /opt/conda/envs/rapids/lib/libxgboost.so /opt/conda/lib/")
 
 import cuml
 import cudf
@@ -20,21 +10,19 @@ import cudf
 from sklearn.model_selection import cross_val_score, KFold
 from sklearn.linear_model import ElasticNet, Ridge
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
 
 
 
 #Data Loader
-fnc_df = pd.read_csv("../input/trends-assessment-prediction/fnc.csv")
-loading_df = pd.read_csv("../input/trends-assessment-prediction/loading.csv")
+fnc_df = pd.read_csv("../input/fnc.csv")
+loading_df = pd.read_csv("../input/loading.csv")
 
 fnc_features, loading_features = list(fnc_df.columns[1:]), list(loading_df.columns[1:])
 df = fnc_df.merge(loading_df, on="Id")
 
 
-labels_df = pd.read_csv("../input/trends-assessment-prediction/train_scores.csv")
+labels_df = pd.read_csv("../input/train_scores.csv")
 labels_df["is_train"] = True
 
 df = df.merge(labels_df, on="Id", how="left")
