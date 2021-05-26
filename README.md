@@ -2,23 +2,17 @@
 # TReNDS
 TReNDS kaggle competition (ensembling + stacking)
 
--Trends stacking 2-2:
-
- kaggleで初めて参加した(solo)TReNDSコンペ（脳の活性の仕方から年齢を特定するもの）で書いた最終コード(マシンリソースの関係でkagggle notebook上で書いたもの)
+ kaggleで初めて参加した(solo)TReNDSコンペ（脳の活性の仕方から年齢を特定するもの）で書いた最終コード(マシンリソースの関係でkagggle内で書いたもの)
  テーブルデータのみを使用。
 
  Ridge, Elastic-Net, SVRを1st stage modelとして、
  それらの予測の重み付平均をLightGBMを2nd stage model(meta model)としてスタッキングして学習したもの。
 
  SVRはsklearnのものに比べてNVIDIAのcumlのものの方が数倍速かった為、そちらを使用。
- 
--Trends models3:
 
- 様々な試行によって最終的に決まったモデルのアンサンブル
- Trends stacking 2-2 のためのドラフト
 
 ----
--Trends stacking 2-2:
+
 
  Code I wrote for the first kaggle competition, TReNDS neuroimaging that I participated in.
  I participated solo and wrote this notebook on the kaggle notebook enviroment.
@@ -28,7 +22,22 @@ TReNDS kaggle competition (ensembling + stacking)
 
  I used SVR from rapids cuml library because it was several times faster than that of the sklearn library.
 
--Trends models3:
- 
- An ensemble of a few models that I decided on afeter doing numerous trials and experiments
- A draft for Trends stacking 2-2.
+
+### system requirements
+- NVIDIA GPU 
+- Linux-like system
+
+packages, etc
+
+- python == 3.6.8
+- pandas == 1.1.1
+- numpy == 1.19.1
+- xgboost == 1.1.0
+- cuml == 0.19
+- cudf == 0.19
+- sklearn == 0.23.2
+
+
+### how to run
+python sub.py
+(this will create "sub.csv" file for submission in folder)
